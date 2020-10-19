@@ -1,5 +1,10 @@
 # exam
 
+## Deploy At 
+
+ https://test-job-exam.vercel.app/
+ 
+ 
 ## Project setup
 ```
 yarn install
@@ -27,3 +32,5 @@ yarn run lint
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+###
+...
