@@ -46,6 +46,7 @@
                     v-model="email"
                     :rules="emailRules"
                     label="Please fill email"
+                    autocomplete="off"
                     required
                     ></v-text-field>
                 </v-col>
@@ -62,6 +63,7 @@
                     :append-icon="show ? 'mdi-eye' : 'mdi-eye-off'"
                     :rules="passWordRules"
                     :type="show ? 'text' : 'password'"
+                    :label="verifyMessage"
                     required
                     @click:append="show = !show"
                     ></v-text-field>
@@ -109,7 +111,7 @@
     </v-btn>
         </v-form>
         </v-container>
-        <v-container v-if="this.gender !== '' && this.firstName !== '' && this.lastName !== '' && this.password == this.verifyPassword && this.verifed == true">
+        <v-container v-if="this.valid == true && this.verifed == true">
             <h4>Resualt</h4>
             <p>First Name: {{firstName}}</p>
             <p>Last Name: {{lastName}}</p>
@@ -126,6 +128,7 @@ export default {
 data:() =>({
       valid: true,
       verifed: false,
+      count: 0,
       show: false,
       show1: false,
       verifyMessage: 'Please fill verify password',
@@ -152,26 +155,30 @@ data:() =>({
           v => (v && v.length >= 8 )|| 'Password must more than 8 characters',
       ],
       verifyPassword: '',
-    //   verifyPasswordRules:[() => ('The password you entered don\'t match')],
-      
+ 
 
 }),
 methods:{
-      validate () {
+      validate:function () {
         this.$refs.form.validate()
         this.verifyPass()
+      },
+      reset: function () {
+          this.$refs.form.reset();
       },
       verifyPass:function(){
           this.verifyMessage = '';
           if(this.password !== this.verifyPassword){
               this.verifed = true
               this.verifyMessage = "Password is not Match !"
+              this.verifed = false
           }
           else{
               this.verifyMessage = "Password is correct"
-                this.verifed = true
+                this.verifed = !this.verifed;
           }
-      }
-}
+      },
+},
+
 }
 </script>
