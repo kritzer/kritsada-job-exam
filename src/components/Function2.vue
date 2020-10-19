@@ -5,23 +5,24 @@
         Date format
       </v-card-title>
       <v-container>
+        <v-subheader>แปลงวันที่ที่ให้จากข้อมูลที่ให้เป็นรูปแบบต่างๆ {{someDate}}</v-subheader>
         <v-row>
-          <span>{{ someDate | moment("DD/MM/YYYY kk:mm") }}</span>
+          <span>วันที่แบบสากล {{ someDate | moment("DD/MM/YYYY kk:mm") }}</span>
         </v-row>
         <v-row>
-          <span>{{ someDate | moment("Do/MMMM/YYYY") }}</span>
+          <span>วันที่แบบไทย {{ someDate | moment("Do/MMMM/YYYY") }}</span>
         </v-row>
         <!-- 31 // จำนวนวันในเดือนนี้ -->
         <v-row>
-          <span>{{ dayIn }}</span>
+          <span>จำนวนวันในเดือนนี้ {{ dayIn }}</span>
         </v-row>
         <!--3 ไตรมาส -->
         <v-row>
-          <span>{{ quarter }}</span>
+          <span>ไตรมาสที่ {{ quarter }}</span>
         </v-row>
         <!-- 1597046092 // Unix timestamp -->
         <v-row>
-          <span>{{ unixTimeStamp }}</span>
+          <span>unixTimeStamp {{ unixTimeStamp }}</span>
         </v-row>
       </v-container>
 
