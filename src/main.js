@@ -5,6 +5,8 @@ import VueLogger from 'vuejs-logger'
 import router from './router'
 import VueMoment from 'vue-moment'
 import moment from 'moment'
+
+
 Vue.config.productionTip = false
 
 const options = {
